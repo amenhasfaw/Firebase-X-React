@@ -1,7 +1,8 @@
 import Authetication from './components/Authetication'
-import {db, auth} from "./config/firebase"
+import {db, auth, storage} from "./config/firebase"
 import { useEffect, useState } from 'react'
 import { getDocs, collection, addDoc, deleteDoc, doc } from 'firebase/firestore'
+import { ref, uploadBytes } from 'firebase/storage'
 import './App.css'
 
 
@@ -14,8 +15,10 @@ function App() {
   const [studentBranch,setStudentBranch] = useState("")
   const [studentUSN,setStudentUSN] = useState("")
   const [studentPromoted,setPromoted] = useState("")
-  const [studentUpdatedPromotion,setUpdatedPromotion] = useState("")
-  
+
+  //FILE Upload State
+
+  const [file,setFile] = useState(null)  
 
   const studentCollection = collection(db,"Students")
 
@@ -57,9 +60,20 @@ function App() {
     } catch (error) {
       console.error(error)
     }
-
   }
 
+  const uploadFile = async () => {
+    if(!file) return;
+
+    try {
+      const fileRef = ref(storage,`demo-folder/${file.name}`)
+      await uploadBytes(fileRef,file) 
+    } catch (error) {
+      console.error(error)
+    }
+    
+
+  }
   return (
     <div>
       <h1>FIREBASE X REACT</h1>
@@ -67,7 +81,7 @@ function App() {
       <Authetication/>
 
       <div style={{marginBottom:"7rem"}} className='CRUD'>
-        <h2>--  CRUD IN FIREBASE  --</h2>
+        <h2>--  CRUD USING FIREBASE/FIRESTORE  --</h2>
         <div className='add-student'>
           <h3>ADD STUDENT: </h3>
           <input onChange={(e) => setStudentName(e.target.value)} placeholder='Name'/>
@@ -94,7 +108,9 @@ function App() {
         </div>
       </div>
       <div style={{marginBottom:"7rem"}} className='STORAGE'>
-        
+        <h2>--  STORAGE IN FIREBASE  --</h2>
+        <input type='file' onChange={(e) => setFile(e.target.files[0])}/>
+        <button className='.g-signin' onClick={uploadFile} > UPLOAD </button>
       </div>
     </div>
   )

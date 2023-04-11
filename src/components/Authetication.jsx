@@ -24,7 +24,7 @@ export default function Authetication() {
     }
   }
 
-  const signOut = async () => {
+  const signout = async () => {
     try{
       await signOut(auth)
       alert('SIGN OUT SUCCESSFULL')
@@ -46,7 +46,7 @@ export default function Authetication() {
       <button className="g-signin" onClick={signinwithGoogle}>SIGN IN WITH GOOGLE</button>
       </div>
       <div>
-      <button onClick={signOut}>SIGN OUT</button>
+      <button onClick={signout}>SIGN OUT</button>
       </div>
     </div>
   )

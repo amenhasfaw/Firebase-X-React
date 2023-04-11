@@ -69,6 +69,13 @@ button:focus-visible {
   background-color: #c44242;
   color: rgb(0, 0, 0);
 }
+.btn{
+  background: none;
+  border: none;
+  padding: 1px;
+  font-size: larger;
+  margin: 0.5rem 2rem
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

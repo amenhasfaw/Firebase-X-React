@@ -46,7 +46,7 @@ export default function Authetication() {
       <button className="g-signin" onClick={signinwithGoogle}>SIGN IN WITH GOOGLE</button>
       </div>
       <div>
-      <button onClick={signout}>SIGN OUT</button>
+      <button className="signout" onClick={signout}>SIGN OUT</button>
       </div>
     </div>
   )

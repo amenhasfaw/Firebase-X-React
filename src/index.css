@@ -35,6 +35,10 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+h2 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}
 
 button, input {
   border-radius: 8px;
@@ -60,6 +64,10 @@ button:focus-visible {
   color: rgb(57, 57, 56);
   padding: 1.3rem;
   margin-bottom: 3rem;
+}
+.signout{
+  background-color: #c44242;
+  color: rgb(0, 0, 0);
 }
 @media (prefers-color-scheme: light) {
   :root {

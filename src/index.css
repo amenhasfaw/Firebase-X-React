@@ -55,7 +55,12 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+.g-signin{
+  background-color: #79838d;
+  color: rgb(64, 87, 29);
+  padding: 1.3rem;
+  margin-bottom: 3rem;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
